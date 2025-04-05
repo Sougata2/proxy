@@ -58,7 +58,15 @@ const proxyHandler = async function (req, res) {
 
         const response = await axios.get(url, {
             responseType: "stream",
-            headers: {Accept: "*/*", Referer: "https://megacloud.club/", Origin: "https://megacloud.club",}
+            headers: {
+                "Accept": "*/*",
+                "Referer": "https://megacloud.club/", // adjust if needed
+                "Origin": "https://megacloud.club",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
+                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+                "Accept-Language": "en-US,en;q=0.9",
+                "Connection": "keep-alive"
+            }
         });
 
         const headers = {...response.headers};
